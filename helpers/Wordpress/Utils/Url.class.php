@@ -159,6 +159,7 @@ class CGY_WP_Utils_Url{
 
 }
 
-add_action('plugins_loaded', array('CGY_WP_Utils_Url', 'init'));
+new CGY_WP_Utils_Url;
+//add_action('plugins_loaded', array('CGY_WP_Utils_Url', 'init'));
 
 
