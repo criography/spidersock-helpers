@@ -170,4 +170,5 @@ class CGY_Text{
 
 }
 
-add_action('plugins_loaded', array('CGY_Text', 'init'));
+new CGY_Text;
+//add_action('plugins_loaded', array('CGY_Text', 'init'));
