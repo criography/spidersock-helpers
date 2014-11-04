@@ -37,7 +37,7 @@ class CGY_Image{
 	* ---------------------------------------------------------------------
 	*/
 	public function __construct(){
-		require_once( SOCKHELPERS . 'Wordpress/Core/Url.class.php');
+		require_once( SOCKHELPERS . 'Wordpress/Utils/Url.class.php');
 		require_once( SOCKHELPERS . 'Utilities/Utils.class.php');
 	}
 
