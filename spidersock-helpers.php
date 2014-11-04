@@ -10,7 +10,7 @@ Author URI: http:/criography.com/
 Copyright 2014 Marek Lenik
 */
 
-
+define('SOCKHELPERS', __DIR__. 'helpers/');
 
 require_once('helpers/Image/Blending.class.php');
 require_once('helpers/Image/Image.class.php');

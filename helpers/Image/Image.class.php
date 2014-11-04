@@ -37,8 +37,8 @@ class CGY_Image{
 	* ---------------------------------------------------------------------
 	*/
 	public function __construct(){
-		require_once('../Wordpress/Core/Url.class.php');
-		require_once('../Utilities/Utils.class.php');
+		require_once( SOCKHELPERS . 'Wordpress/Core/Url.class.php');
+		require_once( SOCKHELPERS . 'Utilities/Utils.class.php');
 	}
 
 
@@ -174,7 +174,7 @@ class CGY_Image{
 
 
 			/* get rid of self-closing tags */
-			$svg = preg_replace("@\<([A-Za-z]+)([\w\s=\"\'\.\-\#:;\(\)\%\\\/]*)\/\>@ms", "<$1$2></$1>", $svg);
+			$svg = preg_replace("@\\<([A-Za-z]+)([\\w\\s=\\\"\\'\\.\\-\\#:;\\(\\)\\%\\\\\\/]*)\\/\\>@ms", "<$1$2></$1>", $svg);
 
 		}
 
