@@ -1,0 +1,16 @@
+{
+	"name"             : "criography/spidersock-helpers",
+	"description"      : "A bunch of WP helpers",
+	"license"          : "GPLv2 or later",
+	"authors"          : [
+		{
+			"name" : "Marek Lenik",
+			"email": "marek@criography.com"
+		}
+	],
+	"minimum-stability": "stable",
+	"require"          : {
+		"composer/installers": "~1.0"
+	},
+	"type"             : "wordpress-plugin"
+}

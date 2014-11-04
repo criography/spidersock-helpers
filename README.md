@@ -1,4 +1,1 @@
-spidersock-helpers
-==================
-
-Set of Wordpress plugins with all sorts of helpers
+A bunch of WP helpers
