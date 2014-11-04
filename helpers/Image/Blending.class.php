@@ -125,5 +125,6 @@ class CGY_Image_Blending{
 
 }
 
-add_action('plugins_loaded', array('CGY_Image_Blending', 'init'));
+new CGY_Image_Blending;
+//add_action('plugins_loaded', array('CGY_Image_Blending', 'init'));
 

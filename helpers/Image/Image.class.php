@@ -458,4 +458,5 @@ class CGY_Image{
 
 }
 
-add_action('plugins_loaded', array('CGY_Image', 'init'));
+new CGY_Image;
+//add_action('plugins_loaded', array('CGY_Image', 'init'));

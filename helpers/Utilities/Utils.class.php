@@ -87,5 +87,5 @@ class CGY_Utils{
 
 
 }
-
-add_action('plugins_loaded', array('CGY_Utils', 'init'));
+new CGY_Utils;
+//add_action('plugins_loaded', array('CGY_Utils', 'init'));
