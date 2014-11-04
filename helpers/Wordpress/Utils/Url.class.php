@@ -141,7 +141,7 @@ class CGY_WP_Utils_Url{
 				return $path;
 
 			}else{
-				throw new Exception('This file / directory doesn\'t seem to exist.');
+				return false;
 			}
 
 		}else{
