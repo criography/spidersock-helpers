@@ -104,9 +104,9 @@ class SSK_WP_Utils_Url{
 			}
 
 
-		}else{
-			throw new Exception('This doesn\'t look like a valid URL and cannot be parsed.');
-
+		/* This doesn't look like a valid URL and cannot be parsed. */
+		} else {
+			return false;
 		}
 
 
