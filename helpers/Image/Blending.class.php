@@ -37,7 +37,7 @@ class CGY_Image_Blending{
 	* ---------------------------------------------------------------------
 	*/
 	public function __construct(){
-		require_once('../Wordpress/Core/Url.class.php');
+		require_once('../Wordpress/Utils/Url.class.php');
 	}
 
 
