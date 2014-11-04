@@ -201,47 +201,44 @@ class CGY_Image{
 	* @param  string    $fallback   String to be used as a fallback if nothing else exists
 	*
 	* @access private
-	* @throws Exception             If passed Image ID that doesn't exist
-	* @return string                first non-empty string
+	* @return string|bool           first non-empty string OR false
 	*/
 	private static function parse_image_object($data, $alt=false, $title=false, $desc=false, $caption=false, $fallback){
-	/* Did it return anything? */
-	if($data->post_count === 1){
+		$acceptedItems = false;
 
-		$image = $data->posts;        /* Image Object */
-		$acceptedItems = array();     /* Array of all possible string values */
 
-		if($alt){
-			$acceptedItems[] = get_post_meta($image[0]->ID, '_wp_attachment_image_alt', true);
+		/* Did it return anything? */
+		if($data->post_count === 1){
+
+			$image = $data->posts;        /* Image Object */
+			$acceptedItems = array();     /* Array of all possible string values */
+
+			if($alt){
+				$acceptedItems[] = get_post_meta($image[0]->ID, '_wp_attachment_image_alt', true);
+			}
+
+			if($title){
+				$acceptedItems[] = $image[0]->post_title;
+			}
+
+			if($desc){
+				$acceptedItems[] = $image[0]->post_content;
+			}
+
+			if($caption){
+				$acceptedItems[] = $image[0]->post_excerpt;
+			}
+
+			if($fallback){
+				$acceptedItems[] = $fallback;
+			}
+
 		}
 
-		if($title){
-			$acceptedItems[] = $image[0]->post_title;
-		}
-
-		if($desc){
-			$acceptedItems[] = $image[0]->post_content;
-		}
-
-		if($caption){
-			$acceptedItems[] = $image[0]->post_excerpt;
-		}
-
-		if($fallback){
-			$acceptedItems[] = $fallback;
-		}
-
-		/* return first non-empty value */
+		/* return first non-empty value or false */
 		return $acceptedItems;
 
-
-
-		/* Image with that Id doesn';'t seem to exist */
-	}else{
-		throw new Exception('It seems that image with given ID doesn\'t exist');
 	}
-
-}
 
 
 
@@ -263,46 +260,43 @@ class CGY_Image{
 	*
 	* @access private
 	* @throws Exception             If passed Image ID that doesn't exist
-	* @return string                first non-empty string
+	* @return string|bool           first non-empty string OR false
 	*/
 	private static function parse_acf_image_array($data, $alt=false, $title=false, $desc=false, $caption=false, $fallback){
+		$acceptedItems = false;
 
-	/* Did it return anything? */
-	if(!empty($data)){
 
-		$acceptedItems = array();     /* Array of all possible string values */
+		/* Did it return anything? */
+		if(!empty($data)){
 
-		if($alt){
-			$acceptedItems[] = $data['alt'];
+			$acceptedItems = array();     /* Array of all possible string values */
+
+			if($alt){
+				$acceptedItems[] = $data['alt'];
+			}
+
+			if($title){
+				$acceptedItems[] = $data['title'];
+			}
+
+			if($desc){
+				$acceptedItems[] = $data['caption'];
+			}
+
+			if($caption){
+				$acceptedItems[] = $data['description'];
+			}
+
+			if($fallback){
+				$acceptedItems[] = $fallback;
+			}
 		}
 
-		if($title){
-			$acceptedItems[] = $data['title'];
-		}
 
-		if($desc){
-			$acceptedItems[] = $data['caption'];
-		}
-
-		if($caption){
-			$acceptedItems[] = $data['description'];
-		}
-
-		if($fallback){
-			$acceptedItems[] = $fallback;
-		}
-
-		/* return first non-empty value */
+		/* return first non-empty value or false */
 		return $acceptedItems;
 
-
-
-		/* Image with that Id doesn';'t seem to exist */
-	}else{
-		throw new Exception('It seems that image with given ID doesn\'t exist');
 	}
-
-}
 
 
 
@@ -326,7 +320,7 @@ class CGY_Image{
 	*
 	* @access private
 	* @throws Exception             If no field or fallback is allowed
-	* @return string                base64 encoded image
+	* @return string|bool           base64 encoded image OR false
 	*/
 	private static function get_image_text($img=null, $alt=false, $title=false, $desc=false, $caption=false, $fallback){
 
@@ -366,7 +360,7 @@ class CGY_Image{
 
 		/* end early */
 		}else{
-			throw new Exception('You must allow for at least one field to be parsed');
+			return false;
 		}
 
 	}
@@ -395,19 +389,7 @@ class CGY_Image{
 	* @return  string                base64 encoded image
 	 */
 	public static function get_alt($img=null, $alt=true, $title=true, $desc=false, $caption=false, $fallback = ''){
-		try{
-			return self::get_image_text($img, $alt, $title, $desc, $caption, $fallback);
-
-		}catch(Exception $e){
-
-			if(WP_DEBUG){
-				echo  '<strong>Caught exception: </strong>',  $e->getMessage(),
-							' [ <em style="opacity:.6">', 'Line ', $e->getLine(), ' in ', $e->getFile(), '</em> ]';
-			}
-
-			return false;
-
-		}
+		return self::get_image_text($img, $alt, $title, $desc, $caption, $fallback);
 	}
 
 
@@ -434,19 +416,7 @@ class CGY_Image{
 	 */
 	public static function get_caption($img=null, $alt=false, $title=false, $desc=true, $caption=true, $fallback = ''){
 
-		try {
-			return self::get_image_text($img, $alt, $title, $desc, $caption, $fallback);
-
-		}catch(Exception $e){
-
-			if(WP_DEBUG){
-				echo  '<strong>Caught exception: </strong>',  $e->getMessage(),
-							' [ <em style="opacity:.6">', 'Line ', $e->getLine(), ' in ', $e->getFile(), '</em> ]';
-			}
-
-			return false;
-
-		}
+		return self::get_image_text($img, $alt, $title, $desc, $caption, $fallback);
 
 	}
 
