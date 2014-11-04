@@ -1,18 +1,18 @@
 <?php
 /**
-	* CGY_Image
+	* SSK_Image
 	* ---------------------------------------------------------------------
 	* main image processing helpers
 	*
-	* @package      Davy's: Wine Merchants
-	* @subpackage   CGY Helpers
+	* @package      SpiderSock Helpers
+	* @subpackage   Image
 	* @since        2.0
 	*
 	* @TODO separate error/exception handling
 	*/
 
 
-class CGY_Image{
+class SSK_Image{
 
 
 
@@ -64,7 +64,7 @@ class CGY_Image{
 		$output = '';
 
 		if ($path) {
-			$path = CGY_WP_Utils_Url::url_to_path($path);
+			$path = SSK_WP_Utils_Url::url_to_path($path);
 			$data = fread(fopen($path, "r"), filesize($path));
 
 			if(!empty($fileType)){
@@ -113,7 +113,7 @@ class CGY_Image{
 
 
 		/* parse the given path and make sure it is in fact absolute server one */
-		$path = CGY_WP_Utils_Url::url_to_path($path);
+		$path = SSK_WP_Utils_Url::url_to_path($path);
 
 
 
@@ -355,7 +355,7 @@ class CGY_Image{
 
 
 			/* finally return the string */
-			return CGY_Utils::first($stringArray);
+			return SSK_Utils::first($stringArray);
 
 
 		/* end early */
@@ -428,5 +428,5 @@ class CGY_Image{
 
 }
 
-new CGY_Image;
-//add_action('plugins_loaded', array('CGY_Image', 'init'));
+new SSK_Image;
+//add_action('plugins_loaded', array('SSK_Image', 'init'));

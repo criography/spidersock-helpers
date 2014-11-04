@@ -1,18 +1,18 @@
 <?php
 /**
-	* CGY_Text
+	* SSK_Text
 	* ---------------------------------------------------------------------
 	* Main Text Processing Helpers
 	*
-	* @package      Davy's: Wine Merchants
-	* @subpackage   CGY Helpers
+	* @package      SpiderSock Helpers
+	* @subpackage   Text
 	* @since        2.0
 	* @TODO separate error/exception handling
 	* @TODO Add as many wp-typgraphy methods as possible.
 	*/
 
 
-class CGY_Text{
+class SSK_Text{
 
 
 
@@ -170,5 +170,5 @@ class CGY_Text{
 
 }
 
-new CGY_Text;
-//add_action('plugins_loaded', array('CGY_Text', 'init'));
+new SSK_Text;
+//add_action('plugins_loaded', array('SSK_Text', 'init'));

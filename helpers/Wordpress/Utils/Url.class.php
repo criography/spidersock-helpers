@@ -4,8 +4,8 @@
 	* -----------------------------------------------------
 	* Contains all helpers transforming, traversing or parsing URLs
 	*
-	* @package      Davy's: Wine Merchants
-	* @subpackage   CGY Helpers
+	* @package      SpiderSock Helpers
+	* @subpackage   WP URL
 	* @since        2.0
 	*
 	*/
@@ -14,7 +14,7 @@
 
 
 
-class CGY_WP_Utils_Url{
+class SSK_WP_Utils_Url{
 
 
 
@@ -159,7 +159,7 @@ class CGY_WP_Utils_Url{
 
 }
 
-new CGY_WP_Utils_Url;
-//add_action('plugins_loaded', array('CGY_WP_Utils_Url', 'init'));
+new SSK_WP_Utils_Url;
+//add_action('plugins_loaded', array('SSK_WP_Utils_Url', 'init'));
 
 

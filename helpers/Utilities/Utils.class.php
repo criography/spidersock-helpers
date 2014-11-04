@@ -1,11 +1,11 @@
 <?php
 /**
-	* CGY_Utils
+	* SSK_Utils
 	* ---------------------------------------------------------------------
 	* Misc Utilities
 	*
-	* @package      Davy's: Wine Merchants
-	* @subpackage   CGY Helpers
+	* @package      SpiderSock Helpers
+	* @subpackage   Utilities
 	* @since        2.0
 	*/
 
@@ -14,7 +14,7 @@
 
 
 
-class CGY_Utils{
+class SSK_Utils{
 
 
 
@@ -87,5 +87,5 @@ class CGY_Utils{
 
 
 }
-new CGY_Utils;
-//add_action('plugins_loaded', array('CGY_Utils', 'init'));
+new SSK_Utils;
+//add_action('plugins_loaded', array('SSK_Utils', 'init'));

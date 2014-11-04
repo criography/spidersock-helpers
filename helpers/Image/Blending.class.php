@@ -1,18 +1,18 @@
 <?php
 /**
-	* CGY_Image_Blending
+	* SSK_ImageBlending
 	* ---------------------------------------------------------------------
 	* main image blending helpers
 	*
-	* @package      Davy's: Wine Merchants
-	* @subpackage   CGY Helpers
+	* @package      SpiderSock Helpers
+	* @subpackage   Image
 	* @since        2.0
  *
 	* @TODO separate error/exception handling
 	*/
 
 
-class CGY_Image_Blending{
+class SSK_ImageBlending{
 
 
 
@@ -60,8 +60,8 @@ class CGY_Image_Blending{
 	public static function getColourMultipliedImg($srcURL, $colour='#ff0000', $width, $height, $valign, $jpg_quality=75, $suffix='-blended', $forceOverwrite=false){
 
 		$blendedURL   = preg_replace('/(\.jpg|\.jpeg)/i', $suffix.'$1', $srcURL);   /* absolute to the docroot, without the domain name */
-		$srcPath      = CGY_WP_Utils_Url::url_to_path($srcURL);                           /* absolute to the server root */
-		$blendedPath  = CGY_WP_Utils_Url::url_to_path($blendedURL);                       /* absolute to the server root */
+		$srcPath      = SSK_WP_Utils_Url::url_to_path($srcURL);                           /* absolute to the server root */
+		$blendedPath  = SSK_WP_Utils_Url::url_to_path($blendedURL);                       /* absolute to the server root */
 
 
 		if(!file_exists($blendedPath) || (file_exists($blendedPath) && $forceOverwrite===true) ){
@@ -125,6 +125,6 @@ class CGY_Image_Blending{
 
 }
 
-new CGY_Image_Blending;
-//add_action('plugins_loaded', array('CGY_Image_Blending', 'init'));
+new SSK_ImageBlending;
+//add_action('plugins_loaded', array('SSK_ImageBlending', 'init'));
 
