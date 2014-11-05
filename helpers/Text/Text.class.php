@@ -82,12 +82,14 @@ class SSK_Text{
  * --------------------------------------------------
  * Wraps each word in span and optionally gives it a class
  *
- * @param string  $str      Text to process
- * @param bool    $addClass Should class attribute be added?
- * @return string processed string
+ * @param   string      $str                  Text to process
+ * @param   bool        $addClass             Should class attribute be added?
+ * @param   bool        $addTrailingSpace     Should there be a space after each word?
+ *
+ * @return  string                       processed string
  */
 
-	public static function wrap_words_in_spans($str, $addClass=false){
+	public static function wrap_words_in_spans($str, $addClass=false, $addTrailingSpace=true){
 		$output = false;
 
 		if(!empty($str)){
@@ -95,7 +97,7 @@ class SSK_Text{
 			$output = '';
 
 			foreach($str as $n=>$word){
-				$output.= '<span'.($addClass ? ' class="word-'.($n+1).'"' : '').'>'.$word.'</span> ';
+				$output.= '<span'.($addClass ? ' class="word-'.($n+1).'"' : '').'>'.$word. ($addTrailingSpace ? ' ' : ''). '</span> ';
 			}
 
 
