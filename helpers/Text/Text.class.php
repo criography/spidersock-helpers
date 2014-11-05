@@ -93,8 +93,8 @@ class SSK_Text{
 		$output = false;
 
 		if(!empty($str)){
-			$str = explode(' ', preg_replace('/(\s+?)/m', ' ', trim($str)));
-			$output = '';
+			$str      = explode(' ', preg_replace('/(\s+?)/m', ' ', trim($str)));
+			$output   = '';
 
 			foreach($str as $n=>$word){
 				$output.= '<span'.($addClass ? ' class="word-'.($n+1).'"' : '').'>'. $word . ($addTrailingSpace ? ' ' : ''). '</span> ';
