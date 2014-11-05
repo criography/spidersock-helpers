@@ -97,7 +97,7 @@ class SSK_Text{
 			$output = '';
 
 			foreach($str as $n=>$word){
-				$output.= '<span'.($addClass ? ' class="word-'.($n+1).'"' : '').'>'.$word. ($addTrailingSpace ? ' ' : ''). '</span> ';
+				$output.= '<span'.($addClass ? ' class="word-'.($n+1).'"' : '').'>'. $word . ($addTrailingSpace ? ' ' : ''). '</span> ';
 			}
 
 
