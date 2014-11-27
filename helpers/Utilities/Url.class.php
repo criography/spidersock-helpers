@@ -9,7 +9,7 @@
      * @subpackage   Utilities
      * @since        2.0
      */
-    class SSK_Utils_File
+    class SSK_Utils_Url
     {
 
 
