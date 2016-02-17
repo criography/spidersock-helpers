@@ -83,7 +83,7 @@ class SSK_WP_Utils_Url{
 	* @return string                        Full server path
 	*/
 	public static	function url_to_path($url, $ignoreRewrites = false, $verifyFileExists = false){
-		$server_root  = self::safe_separators($_SERVER['DOCUMENT_ROOT']);
+		$server_root  = self::safe_separators( ABSPATH );
 		$parsed_url   = parse_url($url);
 		$path         = '';
 
@@ -99,7 +99,7 @@ class SSK_WP_Utils_Url{
 			$parsed_url = $parsed_url['path'];
 
 			/* is it actually a server path already? */
-			if( strpos($parsed_url, $_SERVER['DOCUMENT_ROOT']) === 0 ){
+			if( strpos($parsed_url, ABSPATH) === 0 ){
 				return $parsed_url;
 			}
 
